@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta and links -->
+    <%- include('./partials/headData') %>
+    <title>Minimize | Alert</title>
+  </head>
+  <body class="flex flex-col justify-between">
+    <!-- Navbar -->
+    <%- include('./partials/navBar') %>
+    <!-- Page content -->
+    <% if (locals.stts) { %>
+    <div class="grow lg:mx-auto m-10 min-w-[300px]">
+      <div class="bg-green-700/20 rounded-md p-5 pb-8">
+        <h1 class="text-3xl mb-2">Success!</h1>
+        <p class="mb-8"><%= locals.msg %></p>
+        <a class="btn-anim px-4 py-2" href="/">Return home</a>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="grow lg:mx-auto m-10 min-w-[300px]">
+      <div class="bg-red-700/20 rounded-md p-5 pb-8">
+        <h1 class="text-3xl mb-2">Error!</h1>
+        <p class="mb-8"><%= locals.msg %></p>
+        <a class="btn-anim px-4 py-2" href="/">Return home</a>
+      </div>
+    </div>
+    <% } %>
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+  </body>
+</html>

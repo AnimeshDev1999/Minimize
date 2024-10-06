@@ -1,0 +1,81 @@
+<nav
+  class="py-4 px-10 flex gap-5 relative justify-between lg:justify-start items-baseline bg-cyan-900"
+>
+  <h1 class="text-2xl pr-4 cursor-default text-[#eee]">Minimize</h1>
+  <!-- Btn-1 -->
+  <a class="group hidden lg:inline text-[#eee]" href="/">
+    Home
+    <div class="under-eff"></div>
+  </a>
+  <!-- Btn-2 -->
+  <a class="group hidden lg:inline text-[#eee]" href="/signup">
+    Signup
+    <div class="under-eff"></div>
+  </a>
+  <!-- Btn-3 -->
+  <% if (locals.user) { %>
+  <a class="group hidden lg:inline text-[#eee]" href="/api/users/logout">
+    Logout
+    <div class="under-eff"></div> </a
+  ><% } else { %>
+  <a class="group hidden lg:inline text-[#eee]" href="/login">
+    Login
+    <div class="under-eff"></div>
+  </a>
+  <% } %>
+  <!-- Btn-4 -->
+  <% if (locals.user) { %>
+  <a class="group hidden lg:inline text-[#eee]" href="/profile">
+    Welcome, <%= locals.user.name %>
+    <div class="under-eff"></div> </a
+  ><% } else { %>
+  <a class="group hidden lg:inline text-[#eee]" href="/profile">
+    Welcome, Guest
+    <div class="under-eff"></div>
+  </a>
+  <% } %>
+  <button
+    onclick="tabToggler()"
+    class="group block text-2xl lg:hidden text-[#eee]"
+  >
+    Menu
+    <div class="under-eff"></div>
+  </button>
+  <!-- Mobile dropdown -->
+  <div
+    class="slider-div lg:hidden flex rounded-md flex-col justify-end block absolute top-[100%] right-0 bg-cyan-900 duration-300 slider-div-active"
+  >
+    <!-- Profile btn -->
+    <% if (locals.user) { %>
+    <a class="group text-right py-5 px-10 text-[#eee]" href="/profile">
+      Welcome, <%= locals.user.name %>
+      <div class="under-eff"></div> </a
+    ><% } else { %>
+    <a class="group text-right py-5 px-10 text-[#eee]" href="/profile">
+      Welcome, Guest
+      <div class="under-eff"></div>
+    </a>
+    <% } %>
+    <!-- Btn-1 -->
+    <a class="group text-right py-5 px-10 text-[#eee]" href="/">
+      Home
+      <div class="under-eff"></div>
+    </a>
+    <!-- Btn-2 -->
+    <a class="group text-right py-5 px-10 text-[#eee]" href="/signup">
+      Signup
+      <div class="under-eff"></div>
+    </a>
+    <!-- Btn-3 -->
+    <% if (locals.user) { %>
+    <a class="group text-right py-5 px-10 text-[#eee]" href="/api/users/logout">
+      Logout
+      <div class="under-eff"></div> </a
+    ><% } else { %>
+    <a class="group text-right py-5 px-10 text-[#eee]" href="/login">
+      Login
+      <div class="under-eff"></div>
+    </a>
+    <% } %>
+  </div>
+</nav>

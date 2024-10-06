@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta and links -->
+    <%- include('./partials/headData') %>
+    <title>Minimize | Home</title>
+  </head>
+  <body class="flex flex-col justify-between">
+    <!-- Navbar -->
+    <%- include('./partials/navBar') %>
+    <!-- Page content -->
+    <div
+      class="flex flex-col lg:flex-row gap-10 grow lg:mx-auto m-10 max-w-[1200px]"
+    >
+      <!-- Left pane -->
+      <div class="lg:w-1/3 border-2 h-fit border-cyan-900 rounded-md p-6">
+        <% if (locals.user) { %>
+        <h2 class="text-3xl mb-2">Get started now</h2>
+        <p class="mb-8">
+          Get rid of confusing long URLs generate a short URL now and enjoy easy
+          link shareing.
+        </p>
+        <form
+          class="flex flex-col items-start border-b-2 broder-b-[#cbd5e1]"
+          method="post"
+          action="/api/url/create"
+        >
+          <label>Your URL</label>
+          <input
+            class="bg-slate-600/50 rounded-md mt-2 mb-4 px-2 py-2"
+            name="userUrl"
+            type="text"
+            required
+          />
+          <button type="submit" class="btn-anim mb-8 px-4 py-1">
+            Generate
+          </button>
+        </form>
+        <% } else { %>
+        <h2 class="text-3xl mb-2">Login or create an account to get started</h2>
+        <p class="mb-4">
+          Get rid of confusing long URLs generate a short URL now and enjoy easy
+          link shareing.
+        </p>
+        <% } %>
+        <div
+          class="bg-cyan-700/20 rounded-md p-5 mt-8 h-[75px] duration-300 hover:h-[350px] overflow-hidden"
+        >
+          <h2 class="text-2xl mb-4 underline underline-offset-4">
+            How it works?
+          </h2>
+          <p class="mb-2">
+            - To use your shortId use this format "localhost:8000/r/yourShortID"
+          </p>
+          <p class="mb-2">- Creating an account is free.</p>
+          <p class="mb-2">
+            - You must have a account to start using this service.
+          </p>
+          <p class="mb-2">- You can create 10 short URLs.</p>
+          <p class="mb-2">
+            - If you reach limit for creating short URLs you need to clear URLs
+            from profile screen.
+          </p>
+        </div>
+      </div>
+      <!-- Right pane -->
+      <div class="lg:w-2/3">
+        <h2 class="text-2xl mb-2">Analytics</h2>
+        <p class="mb-8">
+          A list of all the URLs in your account including their original name,
+          short ID and number of clicks each URL got.
+        </p>
+        <div
+          class="bg-cyan-700/20 rounded-md p-5 grid gap-4 grid-cols-[1fr,2fr,3fr,1fr]"
+        >
+          <!-- Table Heading -->
+          <p class="table-head">S. No</p>
+          <p class="table-head">Short ID</p>
+          <p class="table-head">Original URL</p>
+          <p class="table-head">Total clicks</p>
+          <!-- Table data -->
+          <% if (locals.urls) { %> <% locals.urls.forEach((item,index) => { %>
+          <p class="truncate ..."><%= index+1 %></p>
+          <p class="truncate ..."><%= item.shortId %></p>
+          <p class="truncate ..."><%= item.redirectUrl %></p>
+          <p class="truncate ..."><%= item.visitHistory.length %></p>
+          <% }) %> <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+  </body>
+</html>

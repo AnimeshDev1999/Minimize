@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta and links -->
+    <%- include('./partials/headData') %>
+    <title>Minimize | Login</title>
+  </head>
+  <body class="flex flex-col justify-between">
+    <!-- Navbar -->
+    <%- include('./partials/navBar') %>
+    <!-- Page content -->
+    <div
+      class="grow lg:mx-auto m-10 max-w-[1200px] p-10 rounded-md bg-cyan-700/20"
+    >
+      <h2 class="text-2xl mb-2">Welcome back user</h2>
+      <p class="mb-8">
+        Let's get you logged in and continue where you left off
+      </p>
+      <form class="flex flex-col" method="post" action="/api/users/login">
+        <label class="">Email</label>
+        <input
+          class="bg-slate-600/50 rounded-md mt-2 mb-4 px-2 py-2"
+          name="email"
+          type="email"
+          required
+        />
+        <label class="">Password</label>
+        <input
+          class="bg-slate-600/50 rounded-md mt-2 mb-10 px-2 py-2"
+          name="password"
+          type="password"
+          required
+        />
+        <button type="submit" class="btn-anim mb-4 px-4 py-2">Login</button>
+      </form>
+      <p class="mt-5 text-center">
+        Dont have an account?
+        <a class="underline text-sky-600" href="/signup">SignUp</a> instead.
+      </p>
+    </div>
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+  </body>
+</html>
