@@ -1,3 +1,4 @@
+require("dotenv").config();
 // Functional imports
 const express = require("express");
 const cookieParser = require("cookie-parser");
@@ -10,9 +11,9 @@ const redirectRoute = require("./routes/redirectRoute");
 const { checkAuth } = require("./middlewares/auth");
 // Variables
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 // Database connection
-connectToMongoDB("mongodb://127.0.0.1:27017/url-final").then(() => {
+connectToMongoDB(process.env.MONGO_URL).then(() => {
   console.log("MongoDB Connected");
 });
 // Services
