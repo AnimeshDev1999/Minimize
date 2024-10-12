@@ -10,8 +10,8 @@
     <%- include('./partials/navBar') %>
     <!-- Page content -->
     <% if (locals.user) { %>
-    <div class="grow mx-auto m-10 min-w-[300px]">
-      <div class="bg-cyan-700/20 p-10 rounded-md">
+    <div class="grow mx-auto m-5 lg:m-10 lg:min-w-[300px]">
+      <div class="bg-cyan-700/20 p-5 lg:p-10 rounded-md">
         <h1 class="text-3xl mb-6 underline underline-offset-4">My Account</h1>
         <p class="mb-2">
           Name: <span class="font-semibold"><%= locals.user.name %></span>

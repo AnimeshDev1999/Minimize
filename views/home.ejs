@@ -10,7 +10,7 @@
     <%- include('./partials/navBar') %>
     <!-- Page content -->
     <div
-      class="flex flex-col lg:flex-row gap-10 grow lg:mx-auto m-10 max-w-[1200px]"
+      class="flex flex-col lg:flex-row gap-10 grow lg:mx-auto m-5 lg:m-10 max-w-[1200px]"
     >
       <!-- Left pane -->
       <div class="lg:w-1/3 border-2 h-fit border-cyan-900 rounded-md p-6">
@@ -72,19 +72,21 @@
           short ID and number of clicks each URL got.
         </p>
         <div
-          class="bg-cyan-700/20 rounded-md p-5 grid gap-4 grid-cols-[1fr,2fr,3fr,1fr]"
+          class="bg-cyan-700/20 rounded-md p-5 grid gap-4 grid-cols-[2fr,4fr] lg:grid-cols-[1fr,2fr,3fr,1fr]"
         >
           <!-- Table Heading -->
-          <p class="table-head">S. No</p>
+          <p class="table-head hidden lg:block">S. No</p>
           <p class="table-head">Short ID</p>
           <p class="table-head">Original URL</p>
-          <p class="table-head">Total clicks</p>
+          <p class="table-head hidden lg:block">Total clicks</p>
           <!-- Table data -->
           <% if (locals.urls) { %> <% locals.urls.forEach((item,index) => { %>
-          <p class="truncate ..."><%= index+1 %></p>
+          <p class="truncate ... hidden lg:block"><%= index+1 %></p>
           <p class="truncate ..."><%= item.shortId %></p>
           <p class="truncate ..."><%= item.redirectUrl %></p>
-          <p class="truncate ..."><%= item.visitHistory.length %></p>
+          <p class="truncate ... hidden lg:block">
+            <%= item.visitHistory.length %>
+          </p>
           <% }) %> <% } %>
         </div>
       </div>

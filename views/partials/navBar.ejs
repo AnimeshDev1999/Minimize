@@ -1,5 +1,5 @@
 <nav
-  class="py-4 px-10 flex gap-5 relative justify-between lg:justify-start items-baseline bg-cyan-900"
+  class="py-2 lg:py-4 px-5 lg:px-10 flex gap-5 relative justify-between lg:justify-start items-baseline bg-cyan-900"
 >
   <h1 class="text-2xl pr-4 cursor-default text-[#eee]">Minimize</h1>
   <!-- Btn-1 -->
@@ -36,14 +36,14 @@
   <% } %>
   <button
     onclick="tabToggler()"
-    class="group block text-2xl lg:hidden text-[#eee]"
+    class="group block text-xl lg:hidden text-[#eee]"
   >
     Menu
     <div class="under-eff"></div>
   </button>
   <!-- Mobile dropdown -->
   <div
-    class="slider-div lg:hidden flex rounded-md flex-col justify-end block absolute top-[100%] right-0 bg-cyan-900 duration-300 slider-div-active"
+    class="slider-div lg:hidden flex rounded-md flex-col justify-end block absolute top-[100%] right-0 bg-cyan-900 duration-300"
   >
     <!-- Profile btn -->
     <% if (locals.user) { %>
